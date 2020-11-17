@@ -640,4 +640,4 @@ ALTER TABLE `Сообщения` ADD CONSTRAINT `Сообщения_fk1` FOREIGN
 
 ALTER TABLE `Документы сообщений` ADD CONSTRAINT `Документы сообщений_fk0` FOREIGN KEY (`id сообщения`) REFERENCES `Сообщения`(`id сообщения`);
 
-```
+``
