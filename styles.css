@@ -3,6 +3,7 @@ html, body
   font-family: var(--markdown-font-family, 'Times New Roman', Times, serif);
 	font-size: var(--markdown-font-size, 14pt);
   padding: 0;
+  margin: 0;
   text-indent: 1.25cm;
   line-height: var(--vscode-markdown-line-height, 21pt);
 }
@@ -11,6 +12,7 @@ h1, h2, h3, h4, h5
   font-size: var(--markdown-font-size, 14pt);
   line-height: 0;
   padding: 0;
+  margin: 0;
   border-bottom-width: 0;
   border-bottom-style: none;
   line-height: var(--vscode-markdown-line-height, 21pt);
@@ -22,7 +24,37 @@ table, td, th
   border: 1px solid black;
   font-weight: normal;
 }
+table
+{
+  width: 100%;
+  border-collapse: collapse;
+}
 ol
 {
-  text-indent: 0;
+  padding: 0;
+  margin: 0;
+  text-indent: 1.25cm;
+  list-style: inside decimal;
+}
+ul
+{
+  padding: 0;
+  margin: 0;
+  text-indent: 1.25cm;
+  list-style: inside;
+}
+p{
+  padding: 0;
+  margin: 0;
+}
+img
+{
+  text-align: center;
+  width: 80%;
+  display:block;
+  margin:auto;
+}
+.pageNumber
+{
+  text-align: right;
 }
