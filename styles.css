@@ -1,0 +1,28 @@
+html, body
+{
+  font-family: var(--markdown-font-family, 'Times New Roman', Times, serif);
+	font-size: var(--markdown-font-size, 14pt);
+  padding: 0;
+  text-indent: 1.25cm;
+  line-height: var(--vscode-markdown-line-height, 21pt);
+}
+h1, h2, h3, h4, h5 
+{
+  font-size: var(--markdown-font-size, 14pt);
+  line-height: 0;
+  padding: 0;
+  border-bottom-width: 0;
+  border-bottom-style: none;
+  line-height: var(--vscode-markdown-line-height, 21pt);
+  font-weight: normal;
+}
+table, td, th
+{
+  text-indent: 0;
+  border: 1px solid black;
+  font-weight: normal;
+}
+ol
+{
+  text-indent: 0;
+}
