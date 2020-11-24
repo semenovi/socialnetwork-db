@@ -1,2 +1,0 @@
-ALTER TABLE friends
-ADD CONSTRAINT friends_fk0 FOREIGN KEY (id) REFERENCES users (id)
