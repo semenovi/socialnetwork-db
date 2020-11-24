@@ -1,7 +1,7 @@
 ALTER TABLE users
 ADD CONSTRAINT users_fk0
 FOREIGN KEY (u_id)
-REFERENCES users (u_id);
+REFERENCES id_classes (id);
 
 ALTER TABLE friends
 ADD CONSTRAINT friends_fk0
@@ -24,12 +24,12 @@ FOREIGN KEY (recipient_id)
 REFERENCES users (u_id);
 
 ALTER TABLE inrequests
-ADD CONSTRAINT outrequests_fk0
+ADD CONSTRAINT inrequests_fk0
 FOREIGN KEY (u_id)
 REFERENCES users (u_id);
 
 ALTER TABLE inrequests
-ADD CONSTRAINT outrequests_fk1
+ADD CONSTRAINT inrequests_fk1
 FOREIGN KEY (sender_id)
 REFERENCES users (u_id);
 
@@ -89,6 +89,6 @@ FOREIGN KEY (r_id)
 REFERENCES users (u_id);
 
 ALTER TABLE m_docs
-ADD CONSTRAINT messages_fk0
+ADD CONSTRAINT m_docs_fk0
 FOREIGN KEY (m_id)
 REFERENCES messages (m_id);
