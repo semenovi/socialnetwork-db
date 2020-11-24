@@ -132,4 +132,3 @@ ALTER TABLE `Сообщения` ADD CONSTRAINT `Сообщения_fk0` FOREIGN
 ALTER TABLE `Сообщения` ADD CONSTRAINT `Сообщения_fk1` FOREIGN KEY (`id получателя`) REFERENCES `Пользователи`(`id`);
 
 ALTER TABLE `Документы сообщений` ADD CONSTRAINT `Документы сообщений_fk0` FOREIGN KEY (`id сообщения`) REFERENCES `Сообщения`(`id сообщения`);
-
