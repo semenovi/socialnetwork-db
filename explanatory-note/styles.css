@@ -58,3 +58,17 @@ img
 {
   text-align: right;
 }
+code
+{
+  text-indent: 0;
+  font-family: var(--markdown-font-family, 'Times New Roman', Times, serif);
+  font-size: 14pt;
+  line-height: var(--vscode-markdown-line-height, 21pt);
+  color: black;
+}
+.hljs
+{
+  padding: 0;
+  color: black;
+  line-height: var(--vscode-markdown-line-height, 21pt);
+}
