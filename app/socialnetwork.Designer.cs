@@ -1,6 +1,6 @@
-﻿namespace socialnetwork_app
+﻿namespace SocialnetworkApp
 {
-    partial class socialnetwork
+    partial class Socialnetwork
     {
         /// <summary>
         /// Required designer variable.
@@ -98,7 +98,7 @@
             this.testButton.TabIndex = 0;
             this.testButton.Text = "аааааааааааа";
             this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.testButton_Click);
+            this.testButton.Click += new System.EventHandler(this.TestButton_Click);
             // 
             // friendsPage
             // 
@@ -162,7 +162,7 @@
             this.usersSearchButton.TabIndex = 1;
             this.usersSearchButton.Text = "search";
             this.usersSearchButton.UseVisualStyleBackColor = true;
-            this.usersSearchButton.Click += new System.EventHandler(this.usersSearchButton_Click);
+            this.usersSearchButton.Click += new System.EventHandler(this.UsersSearchButton_Click);
             // 
             // textBox1
             // 
@@ -298,7 +298,7 @@
             this.userNameSettingsButton.TabIndex = 1;
             this.userNameSettingsButton.Text = "change";
             this.userNameSettingsButton.UseVisualStyleBackColor = true;
-            this.userNameSettingsButton.Click += new System.EventHandler(this.userNameSettingsButton_Click);
+            this.userNameSettingsButton.Click += new System.EventHandler(this.UserNameSettingsButton_Click);
             // 
             // richTextBox1
             // 

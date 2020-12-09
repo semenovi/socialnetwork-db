@@ -1,7 +1,7 @@
 # https://stackoverflow.com/a/55602125
 cmake_minimum_required(VERSION 3.8)
 
-set(PROJECT_NAME socialnetwork-app)
+set(PROJECT_NAME SocialnetworkApp)
 project(${PROJECT_NAME} LANGUAGES CSharp)
 
 # Include CMake utilities for CSharp, for WinForm and WPF application support.
@@ -11,11 +11,11 @@ include(CSharpUtilities)
 # The .resx and other Properties files are optional here, but including them makes them visible in the VS solution for easy editing. 
 add_executable(${PROJECT_NAME}
     App.config
-    socialnetwork.cs
-    db.cs
-    socialnetwork.Designer.cs
-    socialnetwork.resx
-    main.cs
+    Socialnetwork.cs
+    DB.cs
+    Socialnetwork.Designer.cs
+    Socialnetwork.resx
+    Program.cs
     Properties/AssemblyInfo.cs
     Properties/Resources.Designer.cs
     Properties/Resources.resx
@@ -32,11 +32,11 @@ set(CMAKE_CSharp_FLAGS "/langversion:latest")
 
 # Set the source file properties for Windows Forms use.
 csharp_set_windows_forms_properties(
-    db.cs
-    socialnetwork.cs
-    socialnetwork.Designer.cs
-    socialnetwork.resx
-    main.cs
+    DB.cs
+    Socialnetwork.cs
+    Socialnetwork.Designer.cs
+    Socialnetwork.resx
+    Program.cs
     Properties/AssemblyInfo.cs
     Properties/Resources.Designer.cs
     Properties/Resources.resx

@@ -9,98 +9,87 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
 
-namespace socialnetwork_app
+namespace SocialnetworkApp
 {
-    public partial class socialnetwork : Form
+    public partial class Socialnetwork : Form
     {
-        private db scDb;
-        public socialnetwork()
+        private DB scDb;
+        public Socialnetwork()
         {
             InitializeComponent();
-            scDb = new db("d:\\docs\\edu\\mivlgu\\5_sem\\database\\socialnetwork-local\\db-fb-25\\db.fdb");
-            scDb.connect();
-        }
-        private void connect_Click(object sender, EventArgs e)
-        {
-            scDb = new db("d:\\docs\\edu\\mivlgu\\5_sem\\database\\socialnetwork-local\\db-fb-25\\db.fdb");
-            scDb.connect();
+            scDb = new DB("d:\\docs\\edu\\mivlgu\\5_sem\\database\\socialnetwork-local\\db-fb-25\\db.fdb");
+            scDb.Connect();
         }
 
-        private void get_columns_Click(object sender, EventArgs e)
-        {
-            string q = "select RDB$RELATION_NAME from RDB$RELATIONS";
-            List<String> r = scDb.query(q);
-            foreach(String n in r)
-            {
-                //outText.Text += n + '\n';
-            }
-        }
-
-        private void testButton_Click(object sender, EventArgs e)
+        private void TestButton_Click(object sender, EventArgs e)
         {
             
         }
 
-        private void usersSearchButton_Click(object sender, EventArgs e)
+        private void UsersSearchButton_Click(object sender, EventArgs e)
         {
             string q = "select RDB$RELATION_NAME from RDB$RELATIONS";
-            List<String> r = scDb.query(q);
+            List<String> r = scDb.Query(q);
             foreach (String n in r)
             {
                 //outText.Text += n + '\n';
             }
         }
 
-        private void userNameSettingsButton_Click(object sender, EventArgs e)
+        private void UserNameSettingsButton_Click(object sender, EventArgs e)
         {
             string u_name = userNameSettingsText.Text;
-            List<String> usersAttributes = new List<String>();
-            usersAttributes.Add("U_ID");
-            usersAttributes.Add("U_NAME");
-            usersAttributes.Add("U_SURNAME");
-            usersAttributes.Add("U_MIDDLENAME");
-            usersAttributes.Add("U_SEX");
-            usersAttributes.Add("U_BIRTHDATE");
-            usersAttributes.Add("U_COUNTRY");
-            usersAttributes.Add("U_CITY");
-            usersAttributes.Add("U_PHONENUMBER");
-            usersAttributes.Add("U_AVATAR");
-            usersAttributes.Add("U_DESCRIPTION");
-            usersAttributes.Add("U_PASSWORD");
-            usersAttributes.Add("UD_SEX");
-            usersAttributes.Add("UD_BIRTHDATE");
-            usersAttributes.Add("UD_AVATAR");
-            usersAttributes.Add("UD_FRIENDS");
-            usersAttributes.Add("UD_GROUPS");
-            usersAttributes.Add("UD_NOTES");
-            usersAttributes.Add("UD_MESSAGES");
-            usersAttributes.Add("UN_NOTIFICATIONS");
-            usersAttributes.Add("UN_SOUNDS");
-            usersAttributes.Add("UN_CONTENT");
-            List<String> usersValues = new List<String>();
-            usersValues.Add("NULL");
-            usersValues.Add(u_name);
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            usersValues.Add("NULL");
-            scDb.insert("USERS", usersAttributes, usersValues);
+            List<String> usersAttributes = new List<String>
+            {
+                "U_ID",
+                "U_NAME",
+                "U_SURNAME",
+                "U_MIDDLENAME",
+                "U_SEX",
+                "U_BIRTHDATE",
+                "U_COUNTRY",
+                "U_CITY",
+                "U_PHONENUMBER",
+                "U_AVATAR",
+                "U_DESCRIPTION",
+                "U_PASSWORD",
+                "UD_SEX",
+                "UD_BIRTHDATE",
+                "UD_AVATAR",
+                "UD_FRIENDS",
+                "UD_GROUPS",
+                "UD_NOTES",
+                "UD_MESSAGES",
+                "UN_NOTIFICATIONS",
+                "UN_SOUNDS",
+                "UN_CONTENT"
+            };
+            List<String> usersValues = new List<String>
+            {
+                "NULL",
+                u_name,
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL",
+                "NULL"
+            };
+            scDb.Insert("USERS", usersAttributes, usersValues);
         }
     }
 }

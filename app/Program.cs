@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FirebirdSql.Data.FirebirdClient;
 
-namespace socialnetwork_app
+namespace SocialnetworkApp
 {
-    static class main
+    static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new socialnetwork());
+            Application.Run(new Socialnetwork());
         }
     }
 }

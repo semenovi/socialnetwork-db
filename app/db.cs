@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 using FirebirdSql.Data.FirebirdClient;
 using System.Data;
 
-namespace socialnetwork_app
+namespace SocialnetworkApp
 {
-    class db
+    class DB
     {
         private readonly string path;
         private FbConnection connection;
         private FbConnectionStringBuilder connectionString;
         private bool isOpen;
-        public db(string _path)
+        public DB(string _path)
         {
             path = _path;
             connectionString = new FbConnectionStringBuilder();
             isOpen = false;
         }
-        ~db()
+        ~DB()
         {
             connection.Close();
             connection.Dispose();
         }
-        private void connection_StateChange(object sender, StateChangeEventArgs e)
+        private void Connection_StateChange(object sender, StateChangeEventArgs e)
         {
             /*Команды обработки*/
         }
-        public int connect()
+        public int Connect()
         {
             if (!isOpen)
             {
@@ -41,7 +41,7 @@ namespace socialnetwork_app
                 connectionString.Dialect = 3;
                 connectionString.Charset = "WIN1251";
                 connection = new FbConnection(connectionString.ToString());
-                connection.StateChange += new StateChangeEventHandler(connection_StateChange);
+                connection.StateChange += new StateChangeEventHandler(Connection_StateChange);
                 connection.Open();
                 isOpen = true;
             }
@@ -51,7 +51,7 @@ namespace socialnetwork_app
             }
             return 0;
         }
-        public List<string> query(string _text)
+        public List<string> Query(string _text)
         {
             string sqlCommand = _text;
             FbCommand command = new FbCommand(sqlCommand, connection);
@@ -67,7 +67,7 @@ namespace socialnetwork_app
             command.Dispose();
             return res;
         }
-        public void insert(string _table, List<string> _attributes, List<string> _values)
+        public void Insert(string _table, List<string> _attributes, List<string> _values)
         {
             string sqlCommand = "insert into ";
             sqlCommand += _table;
