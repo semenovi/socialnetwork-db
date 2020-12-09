@@ -19,11 +19,7 @@ namespace SocialnetworkApp
             InitializeComponent();
             scDb = new DB("d:\\docs\\edu\\mivlgu\\5_sem\\database\\socialnetwork-local\\db-fb-25\\db.fdb");
             scDb.Connect();
-        }
-
-        private void TestButton_Click(object sender, EventArgs e)
-        {
-            
+            usersPageTable.Controls.Find("userNameText", false)[0].Text = "user first and last names";
         }
 
         private void UsersSearchButton_Click(object sender, EventArgs e)

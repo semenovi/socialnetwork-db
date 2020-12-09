@@ -28,38 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Socialnetwork));
             this.tabs = new System.Windows.Forms.TabControl();
             this.userPage = new System.Windows.Forms.TabPage();
-            this.testButton = new System.Windows.Forms.Button();
+            this.usersPageTable = new System.Windows.Forms.TableLayoutPanel();
             this.friendsPage = new System.Windows.Forms.TabPage();
             this.groupsPage = new System.Windows.Forms.TabPage();
             this.searchPage = new System.Windows.Forms.TabPage();
             this.searchTabs = new System.Windows.Forms.TabControl();
             this.usersSearchPage = new System.Windows.Forms.TabPage();
+            this.usersSearchList = new System.Windows.Forms.ListView();
             this.usersSearchButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupsSearchPage = new System.Windows.Forms.TabPage();
+            this.groupsSearchList = new System.Windows.Forms.ListView();
             this.groupsSearchButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.docsSearchPage = new System.Windows.Forms.TabPage();
+            this.docsSearchList = new System.Windows.Forms.ListView();
             this.docsSearchButton = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.docsPage = new System.Windows.Forms.TabPage();
             this.settingsPage = new System.Windows.Forms.TabPage();
-            this.docsSearchList = new System.Windows.Forms.ListView();
-            this.groupsSearchList = new System.Windows.Forms.ListView();
-            this.usersSearchList = new System.Windows.Forms.ListView();
-            this.userNameSettingsText = new System.Windows.Forms.TextBox();
             this.userNameSettingsButton = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.userNameSettingsText = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.userNameText = new System.Windows.Forms.TextBox();
             this.tabs.SuspendLayout();
             this.userPage.SuspendLayout();
+            this.usersPageTable.SuspendLayout();
             this.searchPage.SuspendLayout();
             this.searchTabs.SuspendLayout();
             this.usersSearchPage.SuspendLayout();
             this.groupsSearchPage.SuspendLayout();
             this.docsSearchPage.SuspendLayout();
             this.settingsPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabs
@@ -81,8 +85,7 @@
             // 
             // userPage
             // 
-            this.userPage.Controls.Add(this.richTextBox1);
-            this.userPage.Controls.Add(this.testButton);
+            this.userPage.Controls.Add(this.usersPageTable);
             this.userPage.Location = new System.Drawing.Point(4, 22);
             this.userPage.Name = "userPage";
             this.userPage.Size = new System.Drawing.Size(344, 280);
@@ -90,15 +93,28 @@
             this.userPage.Text = "page";
             this.userPage.UseVisualStyleBackColor = true;
             // 
-            // testButton
+            // usersPageTable
             // 
-            this.testButton.Location = new System.Drawing.Point(8, 12);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(75, 23);
-            this.testButton.TabIndex = 0;
-            this.testButton.Text = "аааааааааааа";
-            this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.TestButton_Click);
+            this.usersPageTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.usersPageTable.ColumnCount = 2;
+            this.usersPageTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64F));
+            this.usersPageTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36F));
+            this.usersPageTable.Controls.Add(this.pictureBox1, 0, 0);
+            this.usersPageTable.Controls.Add(this.userNameText, 1, 0);
+            this.usersPageTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usersPageTable.Location = new System.Drawing.Point(0, 0);
+            this.usersPageTable.Name = "usersPageTable";
+            this.usersPageTable.RowCount = 8;
+            this.usersPageTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.usersPageTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.usersPageTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.usersPageTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.usersPageTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.usersPageTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.usersPageTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.usersPageTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.usersPageTable.Size = new System.Drawing.Size(344, 280);
+            this.usersPageTable.TabIndex = 0;
             // 
             // friendsPage
             // 
@@ -153,6 +169,15 @@
             this.usersSearchPage.Text = "users";
             this.usersSearchPage.UseVisualStyleBackColor = true;
             // 
+            // usersSearchList
+            // 
+            this.usersSearchList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usersSearchList.Location = new System.Drawing.Point(3, 46);
+            this.usersSearchList.Name = "usersSearchList";
+            this.usersSearchList.Size = new System.Drawing.Size(330, 205);
+            this.usersSearchList.TabIndex = 2;
+            this.usersSearchList.UseCompatibleStateImageBehavior = false;
+            // 
             // usersSearchButton
             // 
             this.usersSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
@@ -185,6 +210,15 @@
             this.groupsSearchPage.Text = "groups";
             this.groupsSearchPage.UseVisualStyleBackColor = true;
             // 
+            // groupsSearchList
+            // 
+            this.groupsSearchList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupsSearchList.Location = new System.Drawing.Point(3, 46);
+            this.groupsSearchList.Name = "groupsSearchList";
+            this.groupsSearchList.Size = new System.Drawing.Size(330, 205);
+            this.groupsSearchList.TabIndex = 2;
+            this.groupsSearchList.UseCompatibleStateImageBehavior = false;
+            // 
             // groupsSearchButton
             // 
             this.groupsSearchButton.Dock = System.Windows.Forms.DockStyle.Top;
@@ -215,6 +249,15 @@
             this.docsSearchPage.TabIndex = 2;
             this.docsSearchPage.Text = "docs";
             this.docsSearchPage.UseVisualStyleBackColor = true;
+            // 
+            // docsSearchList
+            // 
+            this.docsSearchList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.docsSearchList.Location = new System.Drawing.Point(3, 46);
+            this.docsSearchList.Name = "docsSearchList";
+            this.docsSearchList.Size = new System.Drawing.Size(330, 205);
+            this.docsSearchList.TabIndex = 2;
+            this.docsSearchList.UseCompatibleStateImageBehavior = false;
             // 
             // docsSearchButton
             // 
@@ -254,41 +297,6 @@
             this.settingsPage.Text = "settings";
             this.settingsPage.UseVisualStyleBackColor = true;
             // 
-            // docsSearchList
-            // 
-            this.docsSearchList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.docsSearchList.Location = new System.Drawing.Point(3, 46);
-            this.docsSearchList.Name = "docsSearchList";
-            this.docsSearchList.Size = new System.Drawing.Size(330, 205);
-            this.docsSearchList.TabIndex = 2;
-            this.docsSearchList.UseCompatibleStateImageBehavior = false;
-            // 
-            // groupsSearchList
-            // 
-            this.groupsSearchList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupsSearchList.Location = new System.Drawing.Point(3, 46);
-            this.groupsSearchList.Name = "groupsSearchList";
-            this.groupsSearchList.Size = new System.Drawing.Size(330, 205);
-            this.groupsSearchList.TabIndex = 2;
-            this.groupsSearchList.UseCompatibleStateImageBehavior = false;
-            // 
-            // usersSearchList
-            // 
-            this.usersSearchList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.usersSearchList.Location = new System.Drawing.Point(3, 46);
-            this.usersSearchList.Name = "usersSearchList";
-            this.usersSearchList.Size = new System.Drawing.Size(330, 205);
-            this.usersSearchList.TabIndex = 2;
-            this.usersSearchList.UseCompatibleStateImageBehavior = false;
-            // 
-            // userNameSettingsText
-            // 
-            this.userNameSettingsText.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userNameSettingsText.Location = new System.Drawing.Point(0, 0);
-            this.userNameSettingsText.Name = "userNameSettingsText";
-            this.userNameSettingsText.Size = new System.Drawing.Size(344, 20);
-            this.userNameSettingsText.TabIndex = 0;
-            // 
             // userNameSettingsButton
             // 
             this.userNameSettingsButton.Dock = System.Windows.Forms.DockStyle.Top;
@@ -300,26 +308,50 @@
             this.userNameSettingsButton.UseVisualStyleBackColor = true;
             this.userNameSettingsButton.Click += new System.EventHandler(this.UserNameSettingsButton_Click);
             // 
-            // richTextBox1
+            // userNameSettingsText
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(8, 41);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(309, 206);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.userNameSettingsText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.userNameSettingsText.Location = new System.Drawing.Point(0, 0);
+            this.userNameSettingsText.Name = "userNameSettingsText";
+            this.userNameSettingsText.Size = new System.Drawing.Size(344, 20);
+            this.userNameSettingsText.TabIndex = 0;
             // 
-            // socialnetwork
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(212, 90);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // userNameText
+            // 
+            this.userNameText.BackColor = System.Drawing.Color.White;
+            this.userNameText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.userNameText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userNameText.Location = new System.Drawing.Point(223, 4);
+            this.userNameText.Multiline = true;
+            this.userNameText.Name = "userNameText";
+            this.userNameText.ReadOnly = true;
+            this.userNameText.Size = new System.Drawing.Size(117, 90);
+            this.userNameText.TabIndex = 1;
+            // 
+            // Socialnetwork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 306);
             this.Controls.Add(this.tabs);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(282, 345);
-            this.Name = "socialnetwork";
+            this.Name = "Socialnetwork";
             this.Text = "socialnetwork";
             this.tabs.ResumeLayout(false);
             this.userPage.ResumeLayout(false);
+            this.usersPageTable.ResumeLayout(false);
+            this.usersPageTable.PerformLayout();
             this.searchPage.ResumeLayout(false);
             this.searchTabs.ResumeLayout(false);
             this.usersSearchPage.ResumeLayout(false);
@@ -330,6 +362,7 @@
             this.docsSearchPage.PerformLayout();
             this.settingsPage.ResumeLayout(false);
             this.settingsPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -343,7 +376,6 @@
         private System.Windows.Forms.TabPage searchPage;
         private System.Windows.Forms.TabPage docsPage;
         private System.Windows.Forms.TabPage settingsPage;
-        private System.Windows.Forms.Button testButton;
         private System.Windows.Forms.TabControl searchTabs;
         private System.Windows.Forms.TabPage usersSearchPage;
         private System.Windows.Forms.TabPage groupsSearchPage;
@@ -359,7 +391,9 @@
         private System.Windows.Forms.ListView groupsSearchList;
         private System.Windows.Forms.Button userNameSettingsButton;
         private System.Windows.Forms.TextBox userNameSettingsText;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TableLayoutPanel usersPageTable;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox userNameText;
     }
 }
 
