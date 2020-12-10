@@ -19,7 +19,7 @@ namespace SocialnetworkApp
             InitializeComponent();
             scDb = new DB("d:\\docs\\edu\\mivlgu\\5_sem\\database\\socialnetwork-local\\db-fb-25\\db.fdb");
             scDb.Connect();
-            usersPageTable.Controls.Find("userNameText", false)[0].Text = "user first and last names";
+            // usersPageTable.Controls.Find("userNameText", false)[0].Text = "user first and last names";
         }
 
         private void UsersSearchButton_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace SocialnetworkApp
 
         private void UserNameSettingsButton_Click(object sender, EventArgs e)
         {
-            string u_name = userNameSettingsText.Text;
+            string u_name = settingsPasswordEntryText.Text;
             List<String> usersAttributes = new List<String>
             {
                 "U_ID",
