@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FirebirdSql.Data.FirebirdClient;
-using System.Data;
-
-namespace SocialnetworkApp
+﻿namespace SocialnetworkApp
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using FirebirdSql.Data.FirebirdClient;
+    using System.Data;
+
     class DB
     {
         private readonly string path;
         private FbConnection connection;
-        private FbConnectionStringBuilder connectionString;
+        private readonly FbConnectionStringBuilder connectionString;
         private bool isOpen;
         public DB(string _path)
         {
@@ -41,7 +41,8 @@ namespace SocialnetworkApp
                 connectionString.Dialect = 3;
                 connectionString.Charset = "WIN1251";
                 connection = new FbConnection(connectionString.ToString());
-                connection.StateChange += new StateChangeEventHandler(Connection_StateChange);
+                connection.StateChange += new StateChangeEventHandler(
+                    Connection_StateChange);
                 connection.Open();
                 isOpen = true;
             }
