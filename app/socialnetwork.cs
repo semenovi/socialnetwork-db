@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using FirebirdSql.Data.FirebirdClient;
-
-namespace SocialnetworkApp
+﻿namespace SocialnetworkApp
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using FirebirdSql.Data.FirebirdClient;
+
     public partial class Socialnetwork : Form
     {
-        private DB scDb;
+        private readonly DB scDb;
         public Socialnetwork()
         {
             InitializeComponent();
@@ -25,8 +25,8 @@ namespace SocialnetworkApp
         private void UsersSearchButton_Click(object sender, EventArgs e)
         {
             string q = "select RDB$RELATION_NAME from RDB$RELATIONS";
-            List<String> r = scDb.Query(q);
-            foreach (String n in r)
+            List<string> r = scDb.Query(q);
+            foreach (string n in r)
             {
                 //outText.Text += n + '\n';
             }
@@ -35,7 +35,7 @@ namespace SocialnetworkApp
         private void UserNameSettingsButton_Click(object sender, EventArgs e)
         {
             string u_name = settingsPasswordEntryText.Text;
-            List<String> usersAttributes = new List<String>
+            List<string> usersAttributes = new List<string>
             {
                 "U_ID",
                 "U_NAME",
@@ -60,7 +60,7 @@ namespace SocialnetworkApp
                 "UN_SOUNDS",
                 "UN_CONTENT"
             };
-            List<String> usersValues = new List<String>
+            List<string> usersValues = new List<string>
             {
                 "NULL",
                 u_name,
