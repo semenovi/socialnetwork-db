@@ -28,14 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "245",
-            "232",
-            "4564",
-            "34534"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Socialnetwork));
             this.tabs = new System.Windows.Forms.TabControl();
             this.userPage = new System.Windows.Forms.TabPage();
@@ -50,6 +45,14 @@
             this.userPhoneText = new System.Windows.Forms.TextBox();
             this.userDescriptionText = new System.Windows.Forms.TextBox();
             this.messagesTab = new System.Windows.Forms.TabPage();
+            this.messagesPanel = new System.Windows.Forms.Panel();
+            this.messagesDialogPanel = new System.Windows.Forms.Panel();
+            this.messagesMessagePanel = new System.Windows.Forms.Panel();
+            this.messagesMessageText = new System.Windows.Forms.TextBox();
+            this.messagesMessageAttachButton = new System.Windows.Forms.Button();
+            this.messagesMessageSendButton = new System.Windows.Forms.Button();
+            this.messagesRecipientsPanel = new System.Windows.Forms.Panel();
+            this.messagesRecipientsList = new System.Windows.Forms.ListBox();
             this.friendsPage = new System.Windows.Forms.TabPage();
             this.friendsPanel = new System.Windows.Forms.Panel();
             this.friendsFilterResultList = new System.Windows.Forms.ListView();
@@ -167,32 +170,30 @@
             this.settingsPrivacyTipLabel = new System.Windows.Forms.Label();
             this.settingsBehaviorTab = new System.Windows.Forms.TabPage();
             this.settingsBehaviorPanel = new System.Windows.Forms.Panel();
-            this.settingsBehaviorTipLabel = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.settingsBehaviorNotifyCheck = new System.Windows.Forms.CheckBox();
-            this.settingsBehaviorSoundsCheck = new System.Windows.Forms.CheckBox();
-            this.settingsBehaviorTextCheck = new System.Windows.Forms.CheckBox();
             this.settingsBehaviorConfirmButton = new System.Windows.Forms.Button();
             this.settingsBehaviorFooterLabel = new System.Windows.Forms.Label();
-            this.messagesPanel = new System.Windows.Forms.Panel();
-            this.messagesRecipientsPanel = new System.Windows.Forms.Panel();
-            this.messagesDialogPanel = new System.Windows.Forms.Panel();
-            this.messagesRecipientsList = new System.Windows.Forms.ListBox();
-            this.messagesMessagePanel = new System.Windows.Forms.Panel();
-            this.messagesMessageSendButton = new System.Windows.Forms.Button();
-            this.messagesMessageAttachButton = new System.Windows.Forms.Button();
-            this.messagesMessageText = new System.Windows.Forms.TextBox();
-            this.messagesDialogList = new System.Windows.Forms.ListView();
-            this.receivedMessageHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.receivedMessageTimeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.sentMessageTimeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.sentMessageHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.settingsBehaviorTextCheck = new System.Windows.Forms.CheckBox();
+            this.settingsBehaviorSoundsCheck = new System.Windows.Forms.CheckBox();
+            this.settingsBehaviorNotifyCheck = new System.Windows.Forms.CheckBox();
+            this.settingsBehaviorTipLabel = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.messagesDialogText = new System.Windows.Forms.RichTextBox();
+            this.friendsFooterLabel = new System.Windows.Forms.Label();
+            this.groupsFooterLabel = new System.Windows.Forms.Label();
+            this.docsFooterLabel = new System.Windows.Forms.Label();
+            this.searchUsersFooterLabel = new System.Windows.Forms.Label();
+            this.searchGroupsFooterLabel = new System.Windows.Forms.Label();
+            this.searchDocsFooterLabel = new System.Windows.Forms.Label();
             this.tabs.SuspendLayout();
             this.userPage.SuspendLayout();
             this.userPanel.SuspendLayout();
             this.userTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userAvatarPicture)).BeginInit();
             this.messagesTab.SuspendLayout();
+            this.messagesPanel.SuspendLayout();
+            this.messagesDialogPanel.SuspendLayout();
+            this.messagesMessagePanel.SuspendLayout();
+            this.messagesRecipientsPanel.SuspendLayout();
             this.friendsPage.SuspendLayout();
             this.friendsPanel.SuspendLayout();
             this.groupsPage.SuspendLayout();
@@ -224,10 +225,6 @@
             this.settingsPrivacyPanel.SuspendLayout();
             this.settingsBehaviorTab.SuspendLayout();
             this.settingsBehaviorPanel.SuspendLayout();
-            this.messagesPanel.SuspendLayout();
-            this.messagesRecipientsPanel.SuspendLayout();
-            this.messagesDialogPanel.SuspendLayout();
-            this.messagesMessagePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -403,6 +400,113 @@
             this.messagesTab.Text = "messages";
             this.messagesTab.UseVisualStyleBackColor = true;
             // 
+            // messagesPanel
+            // 
+            this.messagesPanel.AutoScroll = true;
+            this.messagesPanel.Controls.Add(this.messagesDialogPanel);
+            this.messagesPanel.Controls.Add(this.messagesRecipientsPanel);
+            this.messagesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messagesPanel.Location = new System.Drawing.Point(0, 0);
+            this.messagesPanel.Name = "messagesPanel";
+            this.messagesPanel.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
+            this.messagesPanel.Size = new System.Drawing.Size(432, 380);
+            this.messagesPanel.TabIndex = 0;
+            // 
+            // messagesDialogPanel
+            // 
+            this.messagesDialogPanel.Controls.Add(this.messagesDialogText);
+            this.messagesDialogPanel.Controls.Add(this.messagesMessagePanel);
+            this.messagesDialogPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messagesDialogPanel.Location = new System.Drawing.Point(146, 0);
+            this.messagesDialogPanel.Name = "messagesDialogPanel";
+            this.messagesDialogPanel.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+            this.messagesDialogPanel.Size = new System.Drawing.Size(281, 377);
+            this.messagesDialogPanel.TabIndex = 1;
+            // 
+            // messagesMessagePanel
+            // 
+            this.messagesMessagePanel.Controls.Add(this.messagesMessageText);
+            this.messagesMessagePanel.Controls.Add(this.messagesMessageAttachButton);
+            this.messagesMessagePanel.Controls.Add(this.messagesMessageSendButton);
+            this.messagesMessagePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.messagesMessagePanel.Location = new System.Drawing.Point(6, 357);
+            this.messagesMessagePanel.Name = "messagesMessagePanel";
+            this.messagesMessagePanel.Size = new System.Drawing.Size(275, 20);
+            this.messagesMessagePanel.TabIndex = 0;
+            // 
+            // messagesMessageText
+            // 
+            this.messagesMessageText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messagesMessageText.Location = new System.Drawing.Point(0, 0);
+            this.messagesMessageText.Name = "messagesMessageText";
+            this.messagesMessageText.Size = new System.Drawing.Size(195, 20);
+            this.messagesMessageText.TabIndex = 2;
+            // 
+            // messagesMessageAttachButton
+            // 
+            this.messagesMessageAttachButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.messagesMessageAttachButton.Location = new System.Drawing.Point(195, 0);
+            this.messagesMessageAttachButton.Name = "messagesMessageAttachButton";
+            this.messagesMessageAttachButton.Size = new System.Drawing.Size(40, 20);
+            this.messagesMessageAttachButton.TabIndex = 1;
+            this.messagesMessageAttachButton.Text = "file";
+            this.messagesMessageAttachButton.UseVisualStyleBackColor = true;
+            // 
+            // messagesMessageSendButton
+            // 
+            this.messagesMessageSendButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.messagesMessageSendButton.Location = new System.Drawing.Point(235, 0);
+            this.messagesMessageSendButton.Name = "messagesMessageSendButton";
+            this.messagesMessageSendButton.Size = new System.Drawing.Size(40, 20);
+            this.messagesMessageSendButton.TabIndex = 0;
+            this.messagesMessageSendButton.Text = ">";
+            this.messagesMessageSendButton.UseVisualStyleBackColor = true;
+            // 
+            // messagesRecipientsPanel
+            // 
+            this.messagesRecipientsPanel.Controls.Add(this.messagesRecipientsList);
+            this.messagesRecipientsPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.messagesRecipientsPanel.Location = new System.Drawing.Point(5, 0);
+            this.messagesRecipientsPanel.Name = "messagesRecipientsPanel";
+            this.messagesRecipientsPanel.Size = new System.Drawing.Size(141, 377);
+            this.messagesRecipientsPanel.TabIndex = 0;
+            // 
+            // messagesRecipientsList
+            // 
+            this.messagesRecipientsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.messagesRecipientsList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messagesRecipientsList.FormattingEnabled = true;
+            this.messagesRecipientsList.Items.AddRange(new object[] {
+            "123",
+            "13",
+            "213",
+            "23231",
+            "31",
+            "312",
+            "32555555555555555555555555555",
+            "4",
+            "4",
+            "45",
+            "4564",
+            "56",
+            "56",
+            "56",
+            "56+",
+            "564",
+            "6",
+            "635",
+            "65",
+            "65",
+            "6545",
+            "746",
+            "87"});
+            this.messagesRecipientsList.Location = new System.Drawing.Point(0, 0);
+            this.messagesRecipientsList.Name = "messagesRecipientsList";
+            this.messagesRecipientsList.ScrollAlwaysVisible = true;
+            this.messagesRecipientsList.Size = new System.Drawing.Size(141, 377);
+            this.messagesRecipientsList.Sorted = true;
+            this.messagesRecipientsList.TabIndex = 0;
+            // 
             // friendsPage
             // 
             this.friendsPage.Controls.Add(this.friendsPanel);
@@ -417,6 +521,7 @@
             // 
             this.friendsPanel.AutoScroll = true;
             this.friendsPanel.Controls.Add(this.friendsFilterResultList);
+            this.friendsPanel.Controls.Add(this.friendsFooterLabel);
             this.friendsPanel.Controls.Add(this.friendsFilterResultViewSelectedButton);
             this.friendsPanel.Controls.Add(this.friendsFilterResultLabel);
             this.friendsPanel.Controls.Add(this.friendsFilterText);
@@ -432,10 +537,10 @@
             // 
             this.friendsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.friendsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem4});
             this.friendsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.friendsFilterResultList.Name = "friendsFilterResultList";
-            this.friendsFilterResultList.Size = new System.Drawing.Size(422, 308);
+            this.friendsFilterResultList.Size = new System.Drawing.Size(422, 295);
             this.friendsFilterResultList.TabIndex = 2;
             this.friendsFilterResultList.UseCompatibleStateImageBehavior = false;
             // 
@@ -491,6 +596,7 @@
             // 
             this.groupsPanel.AutoScroll = true;
             this.groupsPanel.Controls.Add(this.groupsFilterResultList);
+            this.groupsPanel.Controls.Add(this.groupsFooterLabel);
             this.groupsPanel.Controls.Add(this.groupsFilterResultViewSelectedButton);
             this.groupsPanel.Controls.Add(this.groupsFilterResultLabel);
             this.groupsPanel.Controls.Add(this.groupsFilterText);
@@ -506,10 +612,10 @@
             // 
             this.groupsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem5});
             this.groupsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.groupsFilterResultList.Name = "groupsFilterResultList";
-            this.groupsFilterResultList.Size = new System.Drawing.Size(422, 308);
+            this.groupsFilterResultList.Size = new System.Drawing.Size(422, 295);
             this.groupsFilterResultList.TabIndex = 2;
             this.groupsFilterResultList.UseCompatibleStateImageBehavior = false;
             // 
@@ -565,6 +671,7 @@
             // 
             this.docsPanel.AutoScroll = true;
             this.docsPanel.Controls.Add(this.docsFilterResultList);
+            this.docsPanel.Controls.Add(this.docsFooterLabel);
             this.docsPanel.Controls.Add(this.docsFilterResultViewSelectedButton);
             this.docsPanel.Controls.Add(this.docsFilterResultLabel);
             this.docsPanel.Controls.Add(this.docsFilterText);
@@ -580,10 +687,10 @@
             // 
             this.docsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem6});
             this.docsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.docsFilterResultList.Name = "docsFilterResultList";
-            this.docsFilterResultList.Size = new System.Drawing.Size(422, 308);
+            this.docsFilterResultList.Size = new System.Drawing.Size(422, 295);
             this.docsFilterResultList.TabIndex = 2;
             this.docsFilterResultList.UseCompatibleStateImageBehavior = false;
             // 
@@ -662,6 +769,7 @@
             // 
             this.usersSearchPanel.AutoScroll = true;
             this.usersSearchPanel.Controls.Add(this.usersSearchResultList);
+            this.usersSearchPanel.Controls.Add(this.searchUsersFooterLabel);
             this.usersSearchPanel.Controls.Add(this.usersSearchViewSelectedButton);
             this.usersSearchPanel.Controls.Add(this.usersSearchResultLabel);
             this.usersSearchPanel.Controls.Add(this.usersSearchButton);
@@ -678,7 +786,7 @@
             this.usersSearchResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usersSearchResultList.Location = new System.Drawing.Point(5, 56);
             this.usersSearchResultList.Name = "usersSearchResultList";
-            this.usersSearchResultList.Size = new System.Drawing.Size(408, 266);
+            this.usersSearchResultList.Size = new System.Drawing.Size(408, 253);
             this.usersSearchResultList.TabIndex = 2;
             this.usersSearchResultList.UseCompatibleStateImageBehavior = false;
             // 
@@ -736,6 +844,7 @@
             // 
             this.groupsSearchPanel.AutoScroll = true;
             this.groupsSearchPanel.Controls.Add(this.groupsSearchResultList);
+            this.groupsSearchPanel.Controls.Add(this.searchGroupsFooterLabel);
             this.groupsSearchPanel.Controls.Add(this.groupsSearchViewSelectedButton);
             this.groupsSearchPanel.Controls.Add(this.groupsSearchResultLabel);
             this.groupsSearchPanel.Controls.Add(this.groupsSearchButton);
@@ -752,7 +861,7 @@
             this.groupsSearchResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupsSearchResultList.Location = new System.Drawing.Point(5, 56);
             this.groupsSearchResultList.Name = "groupsSearchResultList";
-            this.groupsSearchResultList.Size = new System.Drawing.Size(408, 266);
+            this.groupsSearchResultList.Size = new System.Drawing.Size(408, 253);
             this.groupsSearchResultList.TabIndex = 2;
             this.groupsSearchResultList.UseCompatibleStateImageBehavior = false;
             // 
@@ -809,6 +918,7 @@
             // 
             this.docsSearchPanel.AutoScroll = true;
             this.docsSearchPanel.Controls.Add(this.docsSearchResultList);
+            this.docsSearchPanel.Controls.Add(this.searchDocsFooterLabel);
             this.docsSearchPanel.Controls.Add(this.docsSearchViewSelectedButton);
             this.docsSearchPanel.Controls.Add(this.docsSearchResultLabel);
             this.docsSearchPanel.Controls.Add(this.docsSearchButton);
@@ -825,7 +935,7 @@
             this.docsSearchResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docsSearchResultList.Location = new System.Drawing.Point(5, 56);
             this.docsSearchResultList.Name = "docsSearchResultList";
-            this.docsSearchResultList.Size = new System.Drawing.Size(408, 266);
+            this.docsSearchResultList.Size = new System.Drawing.Size(408, 253);
             this.docsSearchResultList.TabIndex = 2;
             this.docsSearchResultList.UseCompatibleStateImageBehavior = false;
             // 
@@ -1662,53 +1772,6 @@
             this.settingsBehaviorPanel.Size = new System.Drawing.Size(418, 348);
             this.settingsBehaviorPanel.TabIndex = 0;
             // 
-            // settingsBehaviorTipLabel
-            // 
-            this.settingsBehaviorTipLabel.AutoSize = true;
-            this.settingsBehaviorTipLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.settingsBehaviorTipLabel.Location = new System.Drawing.Point(5, 0);
-            this.settingsBehaviorTipLabel.Name = "settingsBehaviorTipLabel";
-            this.settingsBehaviorTipLabel.Size = new System.Drawing.Size(102, 13);
-            this.settingsBehaviorTipLabel.TabIndex = 25;
-            this.settingsBehaviorTipLabel.Text = "notifications settings";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // settingsBehaviorNotifyCheck
-            // 
-            this.settingsBehaviorNotifyCheck.AutoSize = true;
-            this.settingsBehaviorNotifyCheck.Dock = System.Windows.Forms.DockStyle.Top;
-            this.settingsBehaviorNotifyCheck.Location = new System.Drawing.Point(5, 13);
-            this.settingsBehaviorNotifyCheck.Name = "settingsBehaviorNotifyCheck";
-            this.settingsBehaviorNotifyCheck.Size = new System.Drawing.Size(408, 17);
-            this.settingsBehaviorNotifyCheck.TabIndex = 26;
-            this.settingsBehaviorNotifyCheck.Text = "notify me about messages";
-            this.settingsBehaviorNotifyCheck.UseVisualStyleBackColor = true;
-            // 
-            // settingsBehaviorSoundsCheck
-            // 
-            this.settingsBehaviorSoundsCheck.AutoSize = true;
-            this.settingsBehaviorSoundsCheck.Dock = System.Windows.Forms.DockStyle.Top;
-            this.settingsBehaviorSoundsCheck.Location = new System.Drawing.Point(5, 30);
-            this.settingsBehaviorSoundsCheck.Name = "settingsBehaviorSoundsCheck";
-            this.settingsBehaviorSoundsCheck.Size = new System.Drawing.Size(408, 17);
-            this.settingsBehaviorSoundsCheck.TabIndex = 27;
-            this.settingsBehaviorSoundsCheck.Text = "play notifications sounds";
-            this.settingsBehaviorSoundsCheck.UseVisualStyleBackColor = true;
-            // 
-            // settingsBehaviorTextCheck
-            // 
-            this.settingsBehaviorTextCheck.AutoSize = true;
-            this.settingsBehaviorTextCheck.Dock = System.Windows.Forms.DockStyle.Top;
-            this.settingsBehaviorTextCheck.Location = new System.Drawing.Point(5, 47);
-            this.settingsBehaviorTextCheck.Name = "settingsBehaviorTextCheck";
-            this.settingsBehaviorTextCheck.Size = new System.Drawing.Size(408, 17);
-            this.settingsBehaviorTextCheck.TabIndex = 28;
-            this.settingsBehaviorTextCheck.Text = "show notifications text";
-            this.settingsBehaviorTextCheck.UseVisualStyleBackColor = true;
-            // 
             // settingsBehaviorConfirmButton
             // 
             this.settingsBehaviorConfirmButton.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1728,153 +1791,119 @@
             this.settingsBehaviorFooterLabel.Size = new System.Drawing.Size(0, 13);
             this.settingsBehaviorFooterLabel.TabIndex = 42;
             // 
-            // messagesPanel
+            // settingsBehaviorTextCheck
             // 
-            this.messagesPanel.AutoScroll = true;
-            this.messagesPanel.Controls.Add(this.messagesDialogPanel);
-            this.messagesPanel.Controls.Add(this.messagesRecipientsPanel);
-            this.messagesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messagesPanel.Location = new System.Drawing.Point(0, 0);
-            this.messagesPanel.Name = "messagesPanel";
-            this.messagesPanel.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
-            this.messagesPanel.Size = new System.Drawing.Size(432, 380);
-            this.messagesPanel.TabIndex = 0;
+            this.settingsBehaviorTextCheck.AutoSize = true;
+            this.settingsBehaviorTextCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settingsBehaviorTextCheck.Location = new System.Drawing.Point(5, 47);
+            this.settingsBehaviorTextCheck.Name = "settingsBehaviorTextCheck";
+            this.settingsBehaviorTextCheck.Size = new System.Drawing.Size(408, 17);
+            this.settingsBehaviorTextCheck.TabIndex = 28;
+            this.settingsBehaviorTextCheck.Text = "show notifications text";
+            this.settingsBehaviorTextCheck.UseVisualStyleBackColor = true;
             // 
-            // messagesRecipientsPanel
+            // settingsBehaviorSoundsCheck
             // 
-            this.messagesRecipientsPanel.Controls.Add(this.messagesRecipientsList);
-            this.messagesRecipientsPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.messagesRecipientsPanel.Location = new System.Drawing.Point(5, 0);
-            this.messagesRecipientsPanel.Name = "messagesRecipientsPanel";
-            this.messagesRecipientsPanel.Size = new System.Drawing.Size(141, 377);
-            this.messagesRecipientsPanel.TabIndex = 0;
+            this.settingsBehaviorSoundsCheck.AutoSize = true;
+            this.settingsBehaviorSoundsCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settingsBehaviorSoundsCheck.Location = new System.Drawing.Point(5, 30);
+            this.settingsBehaviorSoundsCheck.Name = "settingsBehaviorSoundsCheck";
+            this.settingsBehaviorSoundsCheck.Size = new System.Drawing.Size(408, 17);
+            this.settingsBehaviorSoundsCheck.TabIndex = 27;
+            this.settingsBehaviorSoundsCheck.Text = "play notifications sounds";
+            this.settingsBehaviorSoundsCheck.UseVisualStyleBackColor = true;
             // 
-            // messagesDialogPanel
+            // settingsBehaviorNotifyCheck
             // 
-            this.messagesDialogPanel.Controls.Add(this.messagesDialogList);
-            this.messagesDialogPanel.Controls.Add(this.messagesMessagePanel);
-            this.messagesDialogPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messagesDialogPanel.Location = new System.Drawing.Point(146, 0);
-            this.messagesDialogPanel.Name = "messagesDialogPanel";
-            this.messagesDialogPanel.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.messagesDialogPanel.Size = new System.Drawing.Size(281, 377);
-            this.messagesDialogPanel.TabIndex = 1;
+            this.settingsBehaviorNotifyCheck.AutoSize = true;
+            this.settingsBehaviorNotifyCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settingsBehaviorNotifyCheck.Location = new System.Drawing.Point(5, 13);
+            this.settingsBehaviorNotifyCheck.Name = "settingsBehaviorNotifyCheck";
+            this.settingsBehaviorNotifyCheck.Size = new System.Drawing.Size(408, 17);
+            this.settingsBehaviorNotifyCheck.TabIndex = 26;
+            this.settingsBehaviorNotifyCheck.Text = "notify me about messages";
+            this.settingsBehaviorNotifyCheck.UseVisualStyleBackColor = true;
             // 
-            // messagesRecipientsList
+            // settingsBehaviorTipLabel
             // 
-            this.messagesRecipientsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.messagesRecipientsList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messagesRecipientsList.FormattingEnabled = true;
-            this.messagesRecipientsList.Items.AddRange(new object[] {
-            "123",
-            "13",
-            "213",
-            "23231",
-            "31",
-            "312",
-            "32555555555555555555555555555",
-            "4",
-            "4",
-            "45",
-            "4564",
-            "56",
-            "56",
-            "56",
-            "56+",
-            "564",
-            "6",
-            "635",
-            "65",
-            "65",
-            "6545",
-            "746",
-            "87"});
-            this.messagesRecipientsList.Location = new System.Drawing.Point(0, 0);
-            this.messagesRecipientsList.Name = "messagesRecipientsList";
-            this.messagesRecipientsList.ScrollAlwaysVisible = true;
-            this.messagesRecipientsList.Size = new System.Drawing.Size(141, 377);
-            this.messagesRecipientsList.Sorted = true;
-            this.messagesRecipientsList.TabIndex = 0;
+            this.settingsBehaviorTipLabel.AutoSize = true;
+            this.settingsBehaviorTipLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settingsBehaviorTipLabel.Location = new System.Drawing.Point(5, 0);
+            this.settingsBehaviorTipLabel.Name = "settingsBehaviorTipLabel";
+            this.settingsBehaviorTipLabel.Size = new System.Drawing.Size(102, 13);
+            this.settingsBehaviorTipLabel.TabIndex = 25;
+            this.settingsBehaviorTipLabel.Text = "notifications settings";
             // 
-            // messagesMessagePanel
+            // openFileDialog1
             // 
-            this.messagesMessagePanel.Controls.Add(this.messagesMessageText);
-            this.messagesMessagePanel.Controls.Add(this.messagesMessageAttachButton);
-            this.messagesMessagePanel.Controls.Add(this.messagesMessageSendButton);
-            this.messagesMessagePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.messagesMessagePanel.Location = new System.Drawing.Point(6, 357);
-            this.messagesMessagePanel.Name = "messagesMessagePanel";
-            this.messagesMessagePanel.Size = new System.Drawing.Size(275, 20);
-            this.messagesMessagePanel.TabIndex = 0;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // messagesMessageSendButton
+            // messagesDialogText
             // 
-            this.messagesMessageSendButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.messagesMessageSendButton.Location = new System.Drawing.Point(235, 0);
-            this.messagesMessageSendButton.Name = "messagesMessageSendButton";
-            this.messagesMessageSendButton.Size = new System.Drawing.Size(40, 20);
-            this.messagesMessageSendButton.TabIndex = 0;
-            this.messagesMessageSendButton.Text = ">";
-            this.messagesMessageSendButton.UseVisualStyleBackColor = true;
+            this.messagesDialogText.BackColor = System.Drawing.Color.White;
+            this.messagesDialogText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.messagesDialogText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messagesDialogText.Location = new System.Drawing.Point(6, 0);
+            this.messagesDialogText.Name = "messagesDialogText";
+            this.messagesDialogText.ReadOnly = true;
+            this.messagesDialogText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.messagesDialogText.Size = new System.Drawing.Size(275, 357);
+            this.messagesDialogText.TabIndex = 1;
+            this.messagesDialogText.Text = resources.GetString("messagesDialogText.Text");
             // 
-            // messagesMessageAttachButton
+            // friendsFooterLabel
             // 
-            this.messagesMessageAttachButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.messagesMessageAttachButton.Location = new System.Drawing.Point(195, 0);
-            this.messagesMessageAttachButton.Name = "messagesMessageAttachButton";
-            this.messagesMessageAttachButton.Size = new System.Drawing.Size(40, 20);
-            this.messagesMessageAttachButton.TabIndex = 1;
-            this.messagesMessageAttachButton.Text = "file";
-            this.messagesMessageAttachButton.UseVisualStyleBackColor = true;
+            this.friendsFooterLabel.AutoSize = true;
+            this.friendsFooterLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.friendsFooterLabel.Location = new System.Drawing.Point(5, 341);
+            this.friendsFooterLabel.Name = "friendsFooterLabel";
+            this.friendsFooterLabel.Size = new System.Drawing.Size(0, 13);
+            this.friendsFooterLabel.TabIndex = 6;
             // 
-            // messagesMessageText
+            // groupsFooterLabel
             // 
-            this.messagesMessageText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messagesMessageText.Location = new System.Drawing.Point(0, 0);
-            this.messagesMessageText.Name = "messagesMessageText";
-            this.messagesMessageText.Size = new System.Drawing.Size(195, 20);
-            this.messagesMessageText.TabIndex = 2;
+            this.groupsFooterLabel.AutoSize = true;
+            this.groupsFooterLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupsFooterLabel.Location = new System.Drawing.Point(5, 341);
+            this.groupsFooterLabel.Name = "groupsFooterLabel";
+            this.groupsFooterLabel.Size = new System.Drawing.Size(0, 13);
+            this.groupsFooterLabel.TabIndex = 7;
             // 
-            // messagesDialogList
+            // docsFooterLabel
             // 
-            this.messagesDialogList.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.messagesDialogList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.messagesDialogList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.receivedMessageHeader,
-            this.receivedMessageTimeHeader,
-            this.sentMessageTimeHeader,
-            this.sentMessageHeader});
-            this.messagesDialogList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messagesDialogList.FullRowSelect = true;
-            this.messagesDialogList.GridLines = true;
-            this.messagesDialogList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.messagesDialogList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.messagesDialogList.Location = new System.Drawing.Point(6, 0);
-            this.messagesDialogList.MultiSelect = false;
-            this.messagesDialogList.Name = "messagesDialogList";
-            this.messagesDialogList.Size = new System.Drawing.Size(275, 357);
-            this.messagesDialogList.TabIndex = 1;
-            this.messagesDialogList.UseCompatibleStateImageBehavior = false;
-            this.messagesDialogList.View = System.Windows.Forms.View.Details;
+            this.docsFooterLabel.AutoSize = true;
+            this.docsFooterLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.docsFooterLabel.Location = new System.Drawing.Point(5, 341);
+            this.docsFooterLabel.Name = "docsFooterLabel";
+            this.docsFooterLabel.Size = new System.Drawing.Size(0, 13);
+            this.docsFooterLabel.TabIndex = 7;
             // 
-            // receivedMessageHeader
+            // searchUsersFooterLabel
             // 
-            this.receivedMessageHeader.Text = "received";
+            this.searchUsersFooterLabel.AutoSize = true;
+            this.searchUsersFooterLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchUsersFooterLabel.Location = new System.Drawing.Point(5, 309);
+            this.searchUsersFooterLabel.Name = "searchUsersFooterLabel";
+            this.searchUsersFooterLabel.Size = new System.Drawing.Size(0, 13);
+            this.searchUsersFooterLabel.TabIndex = 5;
             // 
-            // receivedMessageTimeHeader
+            // searchGroupsFooterLabel
             // 
-            this.receivedMessageTimeHeader.Text = "t";
+            this.searchGroupsFooterLabel.AutoSize = true;
+            this.searchGroupsFooterLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchGroupsFooterLabel.Location = new System.Drawing.Point(5, 309);
+            this.searchGroupsFooterLabel.Name = "searchGroupsFooterLabel";
+            this.searchGroupsFooterLabel.Size = new System.Drawing.Size(0, 13);
+            this.searchGroupsFooterLabel.TabIndex = 5;
             // 
-            // sentMessageTimeHeader
+            // searchDocsFooterLabel
             // 
-            this.sentMessageTimeHeader.Text = "t";
-            this.sentMessageTimeHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // sentMessageHeader
-            // 
-            this.sentMessageHeader.Text = "sent";
-            this.sentMessageHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.searchDocsFooterLabel.AutoSize = true;
+            this.searchDocsFooterLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchDocsFooterLabel.Location = new System.Drawing.Point(5, 309);
+            this.searchDocsFooterLabel.Name = "searchDocsFooterLabel";
+            this.searchDocsFooterLabel.Size = new System.Drawing.Size(0, 13);
+            this.searchDocsFooterLabel.TabIndex = 5;
             // 
             // Socialnetwork
             // 
@@ -1894,6 +1923,11 @@
             this.userTable.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userAvatarPicture)).EndInit();
             this.messagesTab.ResumeLayout(false);
+            this.messagesPanel.ResumeLayout(false);
+            this.messagesDialogPanel.ResumeLayout(false);
+            this.messagesMessagePanel.ResumeLayout(false);
+            this.messagesMessagePanel.PerformLayout();
+            this.messagesRecipientsPanel.ResumeLayout(false);
             this.friendsPage.ResumeLayout(false);
             this.friendsPanel.ResumeLayout(false);
             this.friendsPanel.PerformLayout();
@@ -1938,11 +1972,6 @@
             this.settingsBehaviorTab.ResumeLayout(false);
             this.settingsBehaviorPanel.ResumeLayout(false);
             this.settingsBehaviorPanel.PerformLayout();
-            this.messagesPanel.ResumeLayout(false);
-            this.messagesRecipientsPanel.ResumeLayout(false);
-            this.messagesDialogPanel.ResumeLayout(false);
-            this.messagesMessagePanel.ResumeLayout(false);
-            this.messagesMessagePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2094,11 +2123,13 @@
         private System.Windows.Forms.TextBox messagesMessageText;
         private System.Windows.Forms.Button messagesMessageAttachButton;
         private System.Windows.Forms.Button messagesMessageSendButton;
-        private System.Windows.Forms.ListView messagesDialogList;
-        private System.Windows.Forms.ColumnHeader receivedMessageHeader;
-        private System.Windows.Forms.ColumnHeader receivedMessageTimeHeader;
-        private System.Windows.Forms.ColumnHeader sentMessageTimeHeader;
-        private System.Windows.Forms.ColumnHeader sentMessageHeader;
+        private System.Windows.Forms.RichTextBox messagesDialogText;
+        private System.Windows.Forms.Label friendsFooterLabel;
+        private System.Windows.Forms.Label groupsFooterLabel;
+        private System.Windows.Forms.Label docsFooterLabel;
+        private System.Windows.Forms.Label searchUsersFooterLabel;
+        private System.Windows.Forms.Label searchGroupsFooterLabel;
+        private System.Windows.Forms.Label searchDocsFooterLabel;
     }
 }
 
