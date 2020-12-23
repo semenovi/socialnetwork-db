@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Socialnetwork));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuPanel = new System.Windows.Forms.Panel();
@@ -1578,7 +1578,7 @@
             // 
             this.docsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem1});
             this.docsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.docsFilterResultList.Name = "docsFilterResultList";
             this.docsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -1653,7 +1653,7 @@
             // 
             this.groupsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
+            listViewItem2});
             this.groupsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.groupsFilterResultList.Name = "groupsFilterResultList";
             this.groupsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -1728,7 +1728,7 @@
             // 
             this.friendsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.friendsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem6});
+            listViewItem3});
             this.friendsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.friendsFilterResultList.Name = "friendsFilterResultList";
             this.friendsFilterResultList.Size = new System.Drawing.Size(330, 171);
