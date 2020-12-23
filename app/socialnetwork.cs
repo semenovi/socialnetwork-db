@@ -26,7 +26,7 @@
             scDb.Connect();
             // usersPageTable.Controls.Find("userNameText", false)[0].Text = "user first and last names";
 
-            _ = SetMode("login-register");
+            _ = SetMode("logged-in");
         }
 
         private int SetMode(string _mode)
@@ -74,7 +74,7 @@
                     searchPanel.Visible = true;
                     viewPanel.Visible = true;
                     settingsPanel.Visible = true;
-                    settingsLoginPanel.Visible = true;
+                    settingsLoginPanel.Visible = false;
                     settingsRegisterPanel.Visible = false;
                     settingsPrivacyPanel.Visible = true;
                     settingsBehaviorPanel.Visible = true;
