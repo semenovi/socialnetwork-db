@@ -1,4 +1,4 @@
-﻿namespace SocialnetworkApp
+namespace SocialnetworkApp
 {
     using System;
     using System.Collections;
@@ -26,7 +26,7 @@
             scDb.Connect();
             // usersPageTable.Controls.Find("userNameText", false)[0].Text = "user first and last names";
 
-            _ = SetMode("logged-in");
+            _ = SetMode("login-register");
         }
 
         private int SetMode(string _mode)
@@ -74,7 +74,7 @@
                     searchPanel.Visible = true;
                     viewPanel.Visible = true;
                     settingsPanel.Visible = true;
-                    settingsLoginPanel.Visible = false;
+                    settingsLoginPanel.Visible = true;
                     settingsRegisterPanel.Visible = false;
                     settingsPrivacyPanel.Visible = true;
                     settingsBehaviorPanel.Visible = true;
