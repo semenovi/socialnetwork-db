@@ -68,11 +68,11 @@
             command.Dispose();
             return res;
         }
-        public void Insert(string _table, List<string> _attributes, List<string> _values)
+        private string GetCommand(string _table, List<string> _attributes, List<string> _values)
         {
-            string sqlCommand = "insert into ";
-            sqlCommand += _table;
-            sqlCommand += " (";
+            string o = "insert into ";
+            o += _table;
+            o += " (";
             int i = 0;
             string a;
             while (i <= _attributes.Count - 1)
@@ -80,44 +80,73 @@
                 a = _attributes[i];
                 if (a == "NULL")
                 {
-                    sqlCommand += "NULL";
+                    o += "NULL";
                 }
                 else
                 {
-                    sqlCommand += a;
+                    o += a;
                 }
                 if (i != _attributes.Count - 1)
                 {
-                    sqlCommand += ", ";
+                    o += ", ";
                 }
                 i++;
             }
-            sqlCommand += ") values (";
+            o += ") values (";
             i = 0;
             string v;
-            while(i <= _values.Count - 1)
+            while (i <= _values.Count - 1)
             {
                 v = _values[i];
                 if (v == "NULL")
                 {
-                    sqlCommand += "NULL";
+                    o += "NULL";
                 }
                 else
                 {
-                    sqlCommand += "'";
-                    sqlCommand += v;
-                    sqlCommand += "'";
+                    o += "'";
+                    o += v;
+                    o += "'";
                 }
                 if (i != _values.Count - 1)
                 {
-                    sqlCommand += ", ";
+                    o += ", ";
                 }
                 i++;
             }
-            sqlCommand += ");";
+            o += ")";
+            return o;
+        }
+        public int Insert(string _table, List<string> _attributes, List<string> _values)
+        {
+            int o = -1;
+            string sqlCommand = GetCommand(_table, _attributes, _values);
+            sqlCommand += ";";
             FbCommand command = new FbCommand(sqlCommand, connection);
-            command.ExecuteNonQuery();
+            FbTransaction transaction = connection.BeginTransaction();
+            command.Transaction = transaction;
+            o = command.ExecuteNonQuery();
+            transaction.Commit();
             command.Dispose();
+            return o;
+        }
+        public string GetIdInsert(string _table, List<string> _attributes, List<string> _values, string _returning)
+        {
+            string o = "";
+            string sqlCommand = GetCommand(_table, _attributes, _values);
+            sqlCommand += " returning " + _returning + ";";
+            FbCommand command = new FbCommand(sqlCommand, connection);
+            FbTransaction transaction = connection.BeginTransaction();
+            command.Transaction = transaction;
+            FbDataReader reader = command.ExecuteReader();
+            while(reader.Read())
+            {
+                o += reader.GetInt32(0).ToString();
+            }
+            transaction.Dispose();
+            //transaction.Commit();
+            command.Dispose();
+            return o;
         }
     }
 }

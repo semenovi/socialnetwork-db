@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Socialnetwork));
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuPanel = new System.Windows.Forms.Panel();
             this.userButton = new System.Windows.Forms.Button();
@@ -697,7 +697,7 @@
             // 
             this.friendsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.friendsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem4});
             this.friendsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.friendsFilterResultList.Name = "friendsFilterResultList";
             this.friendsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -772,7 +772,7 @@
             // 
             this.groupsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem5});
             this.groupsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.groupsFilterResultList.Name = "groupsFilterResultList";
             this.groupsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -847,7 +847,7 @@
             // 
             this.docsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem6});
             this.docsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.docsFilterResultList.Name = "docsFilterResultList";
             this.docsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -1642,6 +1642,7 @@
             // settingsRegisterIdText
             // 
             this.settingsRegisterIdText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settingsRegisterIdText.Enabled = false;
             this.settingsRegisterIdText.Location = new System.Drawing.Point(5, 135);
             this.settingsRegisterIdText.Name = "settingsRegisterIdText";
             this.settingsRegisterIdText.Size = new System.Drawing.Size(289, 20);
@@ -1651,6 +1652,7 @@
             // 
             this.settingsRegisterIdLabel.AutoSize = true;
             this.settingsRegisterIdLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settingsRegisterIdLabel.Enabled = false;
             this.settingsRegisterIdLabel.Location = new System.Drawing.Point(5, 122);
             this.settingsRegisterIdLabel.Name = "settingsRegisterIdLabel";
             this.settingsRegisterIdLabel.Size = new System.Drawing.Size(85, 13);

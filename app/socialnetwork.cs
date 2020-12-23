@@ -146,7 +146,11 @@
 
         private void settingsRegisterConfirmButton_Click(object sender, EventArgs e)
         {
-            string s = "";
+            List<string> classAtributes = new List<string> { "ID", "CLASS" };
+            List<string> classValues = new List<string> { "NULL", "u" };
+
+            string id = scDb.GetIdInsert("ID_CLASSES", classAtributes, classValues, "ID");
+            string s;
             if (settingsRegisterSexCheck.Checked)
             {
                 s = "m";
@@ -182,30 +186,30 @@
             };
             List<string> usersValues = new List<string>
             {
-                "NULL",
+                id,
                 settingsRegisterNameText.Text,
                 settingsRegisterSurnameText.Text,
                 settingsRegisterMiddlenameText.Text,
                 s,
-                ToString(settingsRegisterBirthdayPicker.Value),
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL"
+                settingsRegisterBirthdayPicker.Value.ToString("dd.MM.yyyy"),
+                settingsRegisterCountryText.Text,
+                settingsRegisterCityText.Text,
+                settingsRegisterPhoneText.Text,
+                "file-sys",
+                settingsRegisterDescriptionText.Text,
+                settingsRegisterPasswordText.Text,
+                "n",
+                "n",
+                "n",
+                "n",
+                "n",
+                "n",
+                "n",
+                "n",
+                "n",
+                "n"
             };
-            scDb.Insert("USERS", usersAttributes, usersValues);
+            _ = scDb.Insert("USERS", usersAttributes, usersValues);
         }
     }
 }
