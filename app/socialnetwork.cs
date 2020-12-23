@@ -1,6 +1,7 @@
 ﻿namespace SocialnetworkApp
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
@@ -14,12 +15,75 @@
     public partial class Socialnetwork : Form
     {
         private readonly DB scDb;
+        private string mode;
         public Socialnetwork()
         {
             InitializeComponent();
+
+            Icon = Properties.Resources.ico;
+
             scDb = new DB("d:\\docs\\edu\\mivlgu\\5_sem\\database\\socialnetwork-local\\db-fb-25\\db.fdb");
             scDb.Connect();
             // usersPageTable.Controls.Find("userNameText", false)[0].Text = "user first and last names";
+
+            _ = SetMode("login-register");
+        }
+
+        private int SetMode(string _mode)
+        {
+            switch(_mode)
+            {
+                case "login-register":
+                    userButton.Enabled = false;
+                    messagesButton.Enabled = false;
+                    friendsButton.Enabled = false;
+                    groupsButton.Enabled = false;
+                    docsButton.Enabled = false;
+                    searchButton.Enabled = false;
+                    viewButton.Enabled = false;
+                    settingsButton.Enabled = false;
+                    userPanel.Visible = false;
+                    messagesPanel.Visible = false;
+                    friendsPanel.Visible = false;
+                    groupsPanel.Visible = false;
+                    docsPanel.Visible = false;
+                    searchPanel.Visible = false;
+                    viewPanel.Visible = false;
+                    settingsPanel.Visible = true;
+                    settingsLoginPanel.Visible = true;
+                    settingsRegisterPanel.Visible = true;
+                    settingsPrivacyPanel.Visible = false;
+                    settingsBehaviorPanel.Visible = false;
+                    currentHeaderLabel.Text = "войдите или зарегистируйтесь";
+                    mode = _mode;
+                    return 0;
+                case "logged-in":
+                    userButton.Enabled = true;
+                    messagesButton.Enabled = true;
+                    friendsButton.Enabled = true;
+                    groupsButton.Enabled = true;
+                    docsButton.Enabled = true;
+                    searchButton.Enabled = true;
+                    viewButton.Enabled = true;
+                    settingsButton.Enabled = true;
+                    userPanel.Visible = true;
+                    messagesPanel.Visible = true;
+                    friendsPanel.Visible = true;
+                    groupsPanel.Visible = true;
+                    docsPanel.Visible = true;
+                    searchPanel.Visible = true;
+                    viewPanel.Visible = true;
+                    settingsPanel.Visible = true;
+                    settingsLoginPanel.Visible = true;
+                    settingsRegisterPanel.Visible = false;
+                    settingsPrivacyPanel.Visible = true;
+                    settingsBehaviorPanel.Visible = true;
+                    currentHeaderLabel.Text = "добро пожаловать";
+                    mode = _mode;
+                    return 0;
+                default:
+                    return -1;
+            }
         }
 
         private void UsersSearchButton_Click(object sender, EventArgs e)
@@ -32,9 +96,65 @@
             }
         }
 
-        private void UserNameSettingsButton_Click(object sender, EventArgs e)
+        private void userButton_Click(object sender, EventArgs e)
         {
-            string u_name = settingsPasswordEntryText.Text;
+            userPanel.BringToFront();
+            currentHeaderLabel.Text = "личная страница";
+        }
+
+        private void messagesButton_Click(object sender, EventArgs e)
+        {
+            messagesPanel.BringToFront();
+            currentHeaderLabel.Text = "сообщения";
+        }
+
+        private void friendsButton_Click(object sender, EventArgs e)
+        {
+            friendsPanel.BringToFront();
+            currentHeaderLabel.Text = "друзья";
+        }
+
+        private void groupsButton_Click(object sender, EventArgs e)
+        {
+            groupsPanel.BringToFront();
+            currentHeaderLabel.Text = "группы";
+        }
+
+        private void docsButton_Click(object sender, EventArgs e)
+        {
+            docsPanel.BringToFront();
+            currentHeaderLabel.Text = "файлы";
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            searchPanel.BringToFront();
+            currentHeaderLabel.Text = "поиск";
+        }
+
+        private void viewButton_Click(object sender, EventArgs e)
+        {
+            viewPanel.BringToFront();
+            currentHeaderLabel.Text = "обзор страниц";
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            settingsPanel.BringToFront();
+            currentHeaderLabel.Text = "настройки";
+        }
+
+        private void settingsRegisterConfirmButton_Click(object sender, EventArgs e)
+        {
+            string s = "";
+            if (settingsRegisterSexCheck.Checked)
+            {
+                s = "m";
+            }
+            else
+            {
+                s = "f";
+            }
             List<string> usersAttributes = new List<string>
             {
                 "U_ID",
@@ -63,11 +183,11 @@
             List<string> usersValues = new List<string>
             {
                 "NULL",
-                u_name,
-                "NULL",
-                "NULL",
-                "NULL",
-                "NULL",
+                settingsRegisterNameText.Text,
+                settingsRegisterSurnameText.Text,
+                settingsRegisterMiddlenameText.Text,
+                s,
+                ToString(settingsRegisterBirthdayPicker.Value),
                 "NULL",
                 "NULL",
                 "NULL",

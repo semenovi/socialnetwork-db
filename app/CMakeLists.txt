@@ -23,6 +23,17 @@ add_executable(${PROJECT_NAME}
     Properties/Settings.settings
 )
 
+# Copy resources to binary
+configure_file(ico/32.ico Resources/32.ico COPYONLY)
+configure_file(ico/search.png Resources/search.png COPYONLY)
+configure_file(ico/settings.png Resources/settings.png COPYONLY)
+configure_file(ico/view.png Resources/view.png COPYONLY)
+configure_file(ico/docs.png Resources/docs.png COPYONLY)
+configure_file(ico/groups.png Resources/groups.png COPYONLY)
+configure_file(ico/messages.png Resources/messages.png COPYONLY)
+configure_file(ico/friends.png Resources/friends.png COPYONLY)
+configure_file(ico/mypage.png Resources/mypage.png COPYONLY)
+
 # Set the .NET Framework version for the executable.
 set_property(TARGET ${PROJECT_NAME} PROPERTY VS_DOTNET_TARGET_FRAMEWORK_VERSION "v4.7.2")
 # Set the executable to be 32-bit.
@@ -48,16 +59,12 @@ csharp_set_windows_forms_properties(
 set_property(TARGET ${PROJECT_NAME} PROPERTY VS_DOTNET_REFERENCES
     "Microsoft.CSharp"
     "System"
-    "System.Collections.Generic"
     "System.Linq"
     "System.Threading.Tasks"
     "System.Windows.Forms"
-    "System.Collections.Generic"
     "System.ComponentModel"
     "System.Data"
     "System.Drawing"
-    "System.Text"
-    "System.Diagnostics"
     "FirebirdSql.Data.FirebirdClient"
 )
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)
