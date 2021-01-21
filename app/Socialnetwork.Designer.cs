@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Socialnetwork));
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuPanel = new System.Windows.Forms.Panel();
             this.settingsButton = new System.Windows.Forms.Button();
             this.viewButton = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             this.settingsLoginFooterLabel = new System.Windows.Forms.Label();
             this.settingsLoginPasswordText = new System.Windows.Forms.TextBox();
             this.settingsLoginPasswordLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.settingsLoginIdText = new System.Windows.Forms.TextBox();
             this.settingsLoginId = new System.Windows.Forms.Label();
             this.settingsRegisterPage = new System.Windows.Forms.TabPage();
             this.settingsRegisterPanel = new System.Windows.Forms.Panel();
@@ -229,9 +229,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.userAvatarPicture)).BeginInit();
             this.SuspendLayout();
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog.FileName = "*.jpg";
+            this.openFileDialog.Filter = "JPG files|*.jpg|All files|*.*";
             // 
             // menuPanel
             // 
@@ -452,7 +453,7 @@
             this.settingsLoginPanel.Controls.Add(this.settingsLoginFooterLabel);
             this.settingsLoginPanel.Controls.Add(this.settingsLoginPasswordText);
             this.settingsLoginPanel.Controls.Add(this.settingsLoginPasswordLabel);
-            this.settingsLoginPanel.Controls.Add(this.textBox1);
+            this.settingsLoginPanel.Controls.Add(this.settingsLoginIdText);
             this.settingsLoginPanel.Controls.Add(this.settingsLoginId);
             this.settingsLoginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settingsLoginPanel.Location = new System.Drawing.Point(3, 3);
@@ -470,6 +471,7 @@
             this.settingsLoginButton.TabIndex = 1;
             this.settingsLoginButton.Text = "войти";
             this.settingsLoginButton.UseVisualStyleBackColor = true;
+            this.settingsLoginButton.Click += new System.EventHandler(this.settingsLoginButton_Click);
             // 
             // settingsLoginFooterLabel
             // 
@@ -497,13 +499,13 @@
             this.settingsLoginPasswordLabel.TabIndex = 2;
             this.settingsLoginPasswordLabel.Text = "пароль";
             // 
-            // textBox1
+            // settingsLoginIdText
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(5, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 20);
-            this.textBox1.TabIndex = 4;
+            this.settingsLoginIdText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settingsLoginIdText.Location = new System.Drawing.Point(5, 13);
+            this.settingsLoginIdText.Name = "settingsLoginIdText";
+            this.settingsLoginIdText.Size = new System.Drawing.Size(306, 20);
+            this.settingsLoginIdText.TabIndex = 4;
             // 
             // settingsLoginId
             // 
@@ -827,6 +829,7 @@
             this.settingsRegisterAvatarButton.TabIndex = 1;
             this.settingsRegisterAvatarButton.Text = "загрузить";
             this.settingsRegisterAvatarButton.UseVisualStyleBackColor = true;
+            this.settingsRegisterAvatarButton.Click += new System.EventHandler(this.settingsRegisterAvatarButton_Click);
             // 
             // settingsRegisterTipLabel
             // 
@@ -897,6 +900,7 @@
             this.settingsPrivacyLogoutButton.TabIndex = 42;
             this.settingsPrivacyLogoutButton.Text = "выйти из аккаунта";
             this.settingsPrivacyLogoutButton.UseVisualStyleBackColor = true;
+            this.settingsPrivacyLogoutButton.Click += new System.EventHandler(this.settingsPrivacyLogoutButton_Click);
             // 
             // settingsPrivacyConfirmButton
             // 
@@ -1578,7 +1582,7 @@
             // 
             this.docsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem7});
             this.docsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.docsFilterResultList.Name = "docsFilterResultList";
             this.docsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -1653,7 +1657,7 @@
             // 
             this.groupsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem8});
             this.groupsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.groupsFilterResultList.Name = "groupsFilterResultList";
             this.groupsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -1728,7 +1732,7 @@
             // 
             this.friendsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.friendsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem9});
             this.friendsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.friendsFilterResultList.Name = "friendsFilterResultList";
             this.friendsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -2119,7 +2123,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Button userButton;
         private System.Windows.Forms.Button docsButton;
@@ -2276,7 +2280,7 @@
         private System.Windows.Forms.CheckBox settingsBehaviorNotifyCheck;
         private System.Windows.Forms.Label settingsBehaviorTipLabel;
         private System.Windows.Forms.CheckBox settingsRegisterSexCheck;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox settingsLoginIdText;
         private System.Windows.Forms.Label settingsLoginId;
     }
 }

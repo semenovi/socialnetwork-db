@@ -141,10 +141,10 @@
             FbDataReader reader = command.ExecuteReader();
             while(reader.Read())
             {
-                o += reader.GetInt32(0).ToString();
+                o += reader.ToString();
             }
+            transaction.Commit();
             transaction.Dispose();
-            //transaction.Commit();
             command.Dispose();
             return o;
         }

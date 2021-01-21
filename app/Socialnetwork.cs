@@ -7,6 +7,7 @@ namespace SocialnetworkApp
     using System.Data;
     using System.Drawing;
     using System.Linq;
+    using System.Security.Cryptography;
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
@@ -74,7 +75,7 @@ namespace SocialnetworkApp
                     searchPanel.Visible = true;
                     viewPanel.Visible = true;
                     settingsPanel.Visible = true;
-                    settingsLoginPanel.Visible = true;
+                    settingsLoginPanel.Visible = false;
                     settingsRegisterPanel.Visible = false;
                     settingsPrivacyPanel.Visible = true;
                     settingsBehaviorPanel.Visible = true;
@@ -146,8 +147,14 @@ namespace SocialnetworkApp
 
         private void settingsRegisterConfirmButton_Click(object sender, EventArgs e)
         {
+            byte[] bytes = new byte[4];
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            rng.GetBytes(bytes);
+            string newId = BitConverter.ToString(bytes).Replace("-", "").ToLower();
+
+
             List<string> classAtributes = new List<string> { "ID", "CLASS" };
-            List<string> classValues = new List<string> { "NULL", "u" };
+            List<string> classValues = new List<string> { newId, "u" };
 
             string id = scDb.GetIdInsert("ID_CLASSES", classAtributes, classValues, "ID");
             string s;
@@ -210,6 +217,48 @@ namespace SocialnetworkApp
                 "n"
             };
             _ = scDb.Insert("USERS", usersAttributes, usersValues);
+        }
+
+        private void settingsLoginButton_Click(object sender, EventArgs e)
+        {
+            string correctId = "123";
+            string correctPassword = "456";
+            if (settingsLoginIdText.Text == correctId)
+            {
+                if (settingsLoginPasswordText.Text == correctPassword)
+                {
+                    settingsLoginPasswordText.Text = "";
+                    settingsLoginIdText.Text = "";
+                    _ = SetMode("logged-in");
+                }
+                else
+                {
+                    currentHeaderLabel.Text = "неверный пароль";
+                    settingsLoginPasswordText.Text = "";
+                }
+            }
+            else
+            {
+                currentHeaderLabel.Text = "пользователь не существует";
+                settingsLoginIdText.Text = "";
+            }
+            
+        }
+
+        private void settingsPrivacyLogoutButton_Click(object sender, EventArgs e)
+        {
+            _ = SetMode("login-register");
+        }
+
+        private void settingsRegisterAvatarButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                settingsRegisterAvatarButton.Text = "загружен";
+                string filename = openFileDialog.FileName;
+                settingsRegisterAvatarPicture.Image = Image.FromFile(filename);
+            }
         }
     }
 }
