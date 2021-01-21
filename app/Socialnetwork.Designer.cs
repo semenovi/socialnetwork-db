@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Socialnetwork));
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuPanel = new System.Windows.Forms.Panel();
@@ -486,9 +486,9 @@
             this.settingsLoginPasswordText.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsLoginPasswordText.Location = new System.Drawing.Point(5, 46);
             this.settingsLoginPasswordText.Name = "settingsLoginPasswordText";
-            this.settingsLoginPasswordText.PasswordChar = '*';
             this.settingsLoginPasswordText.Size = new System.Drawing.Size(306, 20);
             this.settingsLoginPasswordText.TabIndex = 0;
+            this.settingsLoginPasswordText.UseSystemPasswordChar = true;
             // 
             // settingsLoginPasswordLabel
             // 
@@ -590,6 +590,7 @@
             // 
             this.settingsRegisterDescriptionText.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsRegisterDescriptionText.Location = new System.Drawing.Point(5, 462);
+            this.settingsRegisterDescriptionText.MaxLength = 256;
             this.settingsRegisterDescriptionText.Name = "settingsRegisterDescriptionText";
             this.settingsRegisterDescriptionText.Size = new System.Drawing.Size(289, 20);
             this.settingsRegisterDescriptionText.TabIndex = 19;
@@ -608,9 +609,11 @@
             // 
             this.settingsRegisterPasswordText.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsRegisterPasswordText.Location = new System.Drawing.Point(5, 429);
+            this.settingsRegisterPasswordText.MaxLength = 256;
             this.settingsRegisterPasswordText.Name = "settingsRegisterPasswordText";
             this.settingsRegisterPasswordText.Size = new System.Drawing.Size(289, 20);
             this.settingsRegisterPasswordText.TabIndex = 17;
+            this.settingsRegisterPasswordText.UseSystemPasswordChar = true;
             // 
             // settingsRegisterPasswordLabel
             // 
@@ -626,6 +629,7 @@
             // 
             this.settingsRegisterPhoneText.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsRegisterPhoneText.Location = new System.Drawing.Point(5, 396);
+            this.settingsRegisterPhoneText.MaxLength = 14;
             this.settingsRegisterPhoneText.Name = "settingsRegisterPhoneText";
             this.settingsRegisterPhoneText.Size = new System.Drawing.Size(289, 20);
             this.settingsRegisterPhoneText.TabIndex = 15;
@@ -644,6 +648,7 @@
             // 
             this.settingsRegisterCityText.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsRegisterCityText.Location = new System.Drawing.Point(5, 363);
+            this.settingsRegisterCityText.MaxLength = 32;
             this.settingsRegisterCityText.Name = "settingsRegisterCityText";
             this.settingsRegisterCityText.Size = new System.Drawing.Size(289, 20);
             this.settingsRegisterCityText.TabIndex = 13;
@@ -662,6 +667,7 @@
             // 
             this.settingsRegisterCountryText.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsRegisterCountryText.Location = new System.Drawing.Point(5, 330);
+            this.settingsRegisterCountryText.MaxLength = 32;
             this.settingsRegisterCountryText.Name = "settingsRegisterCountryText";
             this.settingsRegisterCountryText.Size = new System.Drawing.Size(289, 20);
             this.settingsRegisterCountryText.TabIndex = 11;
@@ -719,6 +725,7 @@
             // 
             this.settingsRegisterMiddlenameText.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsRegisterMiddlenameText.Location = new System.Drawing.Point(5, 234);
+            this.settingsRegisterMiddlenameText.MaxLength = 32;
             this.settingsRegisterMiddlenameText.Name = "settingsRegisterMiddlenameText";
             this.settingsRegisterMiddlenameText.Size = new System.Drawing.Size(289, 20);
             this.settingsRegisterMiddlenameText.TabIndex = 7;
@@ -737,6 +744,7 @@
             // 
             this.settingsRegisterSurnameText.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsRegisterSurnameText.Location = new System.Drawing.Point(5, 201);
+            this.settingsRegisterSurnameText.MaxLength = 32;
             this.settingsRegisterSurnameText.Name = "settingsRegisterSurnameText";
             this.settingsRegisterSurnameText.Size = new System.Drawing.Size(289, 20);
             this.settingsRegisterSurnameText.TabIndex = 5;
@@ -755,6 +763,7 @@
             // 
             this.settingsRegisterNameText.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsRegisterNameText.Location = new System.Drawing.Point(5, 168);
+            this.settingsRegisterNameText.MaxLength = 32;
             this.settingsRegisterNameText.Name = "settingsRegisterNameText";
             this.settingsRegisterNameText.Size = new System.Drawing.Size(289, 20);
             this.settingsRegisterNameText.TabIndex = 1;
@@ -1582,7 +1591,7 @@
             // 
             this.docsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.docsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7});
+            listViewItem16});
             this.docsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.docsFilterResultList.Name = "docsFilterResultList";
             this.docsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -1657,7 +1666,7 @@
             // 
             this.groupsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem8});
+            listViewItem17});
             this.groupsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.groupsFilterResultList.Name = "groupsFilterResultList";
             this.groupsFilterResultList.Size = new System.Drawing.Size(330, 171);
@@ -1732,7 +1741,7 @@
             // 
             this.friendsFilterResultList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.friendsFilterResultList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9});
+            listViewItem18});
             this.friendsFilterResultList.Location = new System.Drawing.Point(5, 46);
             this.friendsFilterResultList.Name = "friendsFilterResultList";
             this.friendsFilterResultList.Size = new System.Drawing.Size(330, 171);

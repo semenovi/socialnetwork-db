@@ -17,6 +17,7 @@ namespace SocialnetworkApp
     {
         private readonly DB scDb;
         private string mode;
+        private string userId;
         public Socialnetwork()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace SocialnetworkApp
 
             scDb = new DB("d:\\docs\\edu\\mivlgu\\5_sem\\database\\socialnetwork-local\\db-fb-25\\db.fdb");
             scDb.Connect();
+            userId = "";
             // usersPageTable.Controls.Find("userNameText", false)[0].Text = "user first and last names";
 
             _ = SetMode("login-register");
@@ -79,7 +81,14 @@ namespace SocialnetworkApp
                     settingsRegisterPanel.Visible = false;
                     settingsPrivacyPanel.Visible = true;
                     settingsBehaviorPanel.Visible = true;
-                    currentHeaderLabel.Text = "добро пожаловать";
+                    if (userId == "")
+                    {
+                        currentHeaderLabel.Text = "добро пожаловать";
+                    }
+                    else
+                    {
+                        currentHeaderLabel.Text = "добро пожаловать, " + userId;
+                    }
                     mode = _mode;
                     return 0;
                 default:
@@ -147,85 +156,114 @@ namespace SocialnetworkApp
 
         private void settingsRegisterConfirmButton_Click(object sender, EventArgs e)
         {
-            byte[] bytes = new byte[4];
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(bytes);
-            string newId = BitConverter.ToString(bytes).Replace("-", "").ToLower();
-
-
-            List<string> classAtributes = new List<string> { "ID", "CLASS" };
-            List<string> classValues = new List<string> { newId, "u" };
-
-            string id = scDb.GetIdInsert("ID_CLASSES", classAtributes, classValues, "ID");
-            string s;
-            if (settingsRegisterSexCheck.Checked)
+            if (settingsRegisterNameText.Text.Trim() == "")
             {
-                s = "m";
+                currentHeaderLabel.Text = "введите имя";
             }
             else
             {
-                s = "f";
+                if (settingsRegisterPasswordText.Text.Trim() == "")
+                {
+                    currentHeaderLabel.Text = "введите пароль";
+                }
+                else
+                {
+                    byte[] bytes = new byte[4];
+                    RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+                    rng.GetBytes(bytes);
+                    string newId = BitConverter.ToString(bytes).Replace("-", "").ToLower();
+
+                    userId = newId;
+                    settingsRegisterIdText.Text = userId;
+
+                    List<string> classAtributes = new List<string> { "ID", "CLASS" };
+                    List<string> classValues = new List<string> { newId, "u" };
+
+                    string id = scDb.GetIdInsert("ID_CLASSES", classAtributes, classValues, "ID");
+                    string s;
+                    if (settingsRegisterSexCheck.Checked)
+                    {
+                        s = "m";
+                    }
+                    else
+                    {
+                        s = "f";
+                    }
+                    List<string> usersAttributes = new List<string>
+                    {
+                        "U_ID",
+                        "U_NAME",
+                        "U_SURNAME",
+                        "U_MIDDLENAME",
+                        "U_SEX",
+                        "U_BIRTHDATE",
+                        "U_COUNTRY",
+                        "U_CITY",
+                        "U_PHONENUMBER",
+                        "U_AVATAR",
+                        "U_DESCRIPTION",
+                        "U_PASSWORD",
+                        "UD_SEX",
+                        "UD_BIRTHDATE",
+                        "UD_AVATAR",
+                        "UD_FRIENDS",
+                        "UD_GROUPS",
+                        "UD_NOTES",
+                        "UD_MESSAGES",
+                        "UN_NOTIFICATIONS",
+                        "UN_SOUNDS",
+                        "UN_CONTENT"
+                    };
+                    List<string> usersValues = new List<string>
+                    {
+                        id,
+                        settingsRegisterNameText.Text,
+                        settingsRegisterSurnameText.Text,
+                        settingsRegisterMiddlenameText.Text,
+                        s,
+                        settingsRegisterBirthdayPicker.Value.ToString("dd.MM.yyyy"),
+                        settingsRegisterCountryText.Text,
+                        settingsRegisterCityText.Text,
+                        settingsRegisterPhoneText.Text,
+                        openFileDialog.FileName,
+                        settingsRegisterDescriptionText.Text,
+                        settingsRegisterPasswordText.Text,
+                        "n",
+                        "n",
+                        "n",
+                        "n",
+                        "n",
+                        "n",
+                        "n",
+                        "n",
+                        "n",
+                        "n"
+                    };
+                    _ = scDb.Insert("USERS", usersAttributes, usersValues);
+                    settingsRegisterIdText.ResetText();
+                    settingsRegisterNameText.ResetText();
+                    settingsRegisterSurnameText.ResetText();
+                    settingsRegisterMiddlenameText.ResetText();
+                    settingsRegisterBirthdayPicker.ResetText();
+                    settingsRegisterCountryText.ResetText();
+                    settingsRegisterCityText.ResetText();
+                    settingsRegisterPhoneText.ResetText();
+                    settingsRegisterDescriptionText.ResetText();
+                    settingsRegisterPasswordText.ResetText();
+                    openFileDialog.Reset();
+                    _ = SetMode("logged-in");
+                }
             }
-            List<string> usersAttributes = new List<string>
-            {
-                "U_ID",
-                "U_NAME",
-                "U_SURNAME",
-                "U_MIDDLENAME",
-                "U_SEX",
-                "U_BIRTHDATE",
-                "U_COUNTRY",
-                "U_CITY",
-                "U_PHONENUMBER",
-                "U_AVATAR",
-                "U_DESCRIPTION",
-                "U_PASSWORD",
-                "UD_SEX",
-                "UD_BIRTHDATE",
-                "UD_AVATAR",
-                "UD_FRIENDS",
-                "UD_GROUPS",
-                "UD_NOTES",
-                "UD_MESSAGES",
-                "UN_NOTIFICATIONS",
-                "UN_SOUNDS",
-                "UN_CONTENT"
-            };
-            List<string> usersValues = new List<string>
-            {
-                id,
-                settingsRegisterNameText.Text,
-                settingsRegisterSurnameText.Text,
-                settingsRegisterMiddlenameText.Text,
-                s,
-                settingsRegisterBirthdayPicker.Value.ToString("dd.MM.yyyy"),
-                settingsRegisterCountryText.Text,
-                settingsRegisterCityText.Text,
-                settingsRegisterPhoneText.Text,
-                "file-sys",
-                settingsRegisterDescriptionText.Text,
-                settingsRegisterPasswordText.Text,
-                "n",
-                "n",
-                "n",
-                "n",
-                "n",
-                "n",
-                "n",
-                "n",
-                "n",
-                "n"
-            };
-            _ = scDb.Insert("USERS", usersAttributes, usersValues);
         }
 
         private void settingsLoginButton_Click(object sender, EventArgs e)
         {
-            string correctId = "123";
-            string correctPassword = "456";
-            if (settingsLoginIdText.Text == correctId)
+            string resultId = scDb.Query("SELECT u_id FROM users WHERE u_id='" + settingsLoginIdText.Text + "'")[0];
+            string resultPassword = "";
+            if (settingsLoginIdText.Text == resultId)
             {
-                if (settingsLoginPasswordText.Text == correctPassword)
+                resultPassword = scDb.Query("SELECT u_password FROM users WHERE u_id='" + resultId + "'")[0];
+                if (settingsLoginPasswordText.Text == resultPassword)
                 {
                     settingsLoginPasswordText.Text = "";
                     settingsLoginIdText.Text = "";

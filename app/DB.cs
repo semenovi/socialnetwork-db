@@ -139,9 +139,9 @@
             FbTransaction transaction = connection.BeginTransaction();
             command.Transaction = transaction;
             FbDataReader reader = command.ExecuteReader();
-            while(reader.Read())
+            while(_ = reader.Read())
             {
-                o += reader.ToString();
+                o += reader.GetString(0);
             }
             transaction.Commit();
             transaction.Dispose();
